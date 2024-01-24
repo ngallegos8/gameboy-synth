@@ -1,0 +1,16 @@
+{
+    "presets": [
+        {
+            "id": 1,
+            "name": "Bass-ic",
+            "type": "bass",
+            "gain": 50
+        },
+        {
+            "id": 2,
+            "name": "Key'd In",
+            "type": "key",
+            "volume": 40
+        }
+    ]
+}
