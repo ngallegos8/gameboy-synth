@@ -10,7 +10,7 @@ function Synth() {
     const [presets, setPresets] = useState([])
     const [search, setSearch] = useState("")
 
-    const [volume, setVolume] = useState(-4)
+    const [gain, setGain] = useState(.3)
 
 
     useEffect(() => {
@@ -29,11 +29,12 @@ function Synth() {
      // Create an Oscillator and a Gain node
      const oscillator = new OscillatorNode(audioCtx, {
        type: "square",
-       frequency: 500, // Value in Herz
+       frequency: 300, // Value in Herz
      });
-     const gainNode = new GainNode(audioCtx, { gain: 0.1 });
+     
+     const gainNode = audioCtx.createGain()
 
-     // Connect both nodes to the speakers
+     // Connect both nodes to the speakers 
 
      oscillator.connect(gainNode);
      gainNode.connect(audioCtx.destination);
@@ -57,7 +58,12 @@ function Synth() {
             <PresetList presets={displayedPresets} />
         </div>
         <section class="master-controls">
-            <input type="range" id="gain" class="control-gain" min="0" max="1" step="0.01" value={volume} onChange={(e) => setVolume(e.target.value)} />
+            <input type="range" id="gain" class="control-gain" min="0" max="2" step="0.01" value={gain} list="gain-vals" data-action="gain" onChange={(e) => setGain(e.target.value)} />
+            <datalist id="gain-vals">
+                <option value="0" label="min" />
+                <option value="2" label="max" />
+            </datalist>
+            <label for="gain">Gain</label>
         </section>
 
         
