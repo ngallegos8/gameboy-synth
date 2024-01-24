@@ -4,11 +4,17 @@ function PresetCard({ preset }) {
 
 
   return (
-    <li className="card">
-      <h4>{preset.id}</h4>
-      <h4>{preset.name}</h4>
-      <h4>{preset.type}</h4>
-    </li>
+    <tr>
+        <td className="row-name" >
+            <span>{preset.id}</span>
+        </td>
+        <td>
+            <span>{preset.type}</span>
+        </td>
+        <td>
+            <span>{preset.name}</span>
+        </td>
+    </tr>
   );
 }
 

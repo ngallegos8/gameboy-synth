@@ -9,7 +9,23 @@ function PresetList({ presets }) {
   })
 
   return (
-    <ul className="cards">{presetList}</ul>
+    <table>
+            <tbody>
+                <tr>
+                    <th className="row-name">
+                        #
+                    </th>
+                    <th>
+                        Type
+                    </th>
+                    <th>
+                        Preset
+                    </th>
+                </tr>
+                {presetList}
+            </tbody>
+        
+        </table>
   )
 }
 
