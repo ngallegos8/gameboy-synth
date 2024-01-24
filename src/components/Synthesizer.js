@@ -72,6 +72,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Synth, AMSynth, FMSynth, MonoSynth, Destination, Reverb, Delay, Distortion } from 'tone';
 
+
+
 const Synthesizer = () => {
   const [volume, setVolume] = useState(50);
   const [pitch, setPitch] = useState(440);
@@ -82,7 +84,7 @@ const Synthesizer = () => {
   const [waveform, setWaveform] = useState('sine');
   const [selectedPreset, setSelectedPreset] = useState('Default');
   
- 
+
   let synth = useRef(createSynth()).current;
 
   function createSynth() {
@@ -120,8 +122,6 @@ const Synthesizer = () => {
     return newSynth;
   }
 
-  
-
   useEffect(() => {
   
     synth = createSynth(); // Update synth with the newly created synthesizer
@@ -155,7 +155,7 @@ const Synthesizer = () => {
   const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
     setVolume(newVolume);
-    synth.volume.value = newVolume;
+    synth.volume.value = volume;
   };
 
   const handlePitchChange = (e) => {
@@ -211,6 +211,13 @@ const Synthesizer = () => {
     synth.oscillator.type = newWaveform;
   };
 
+  const handlePlaySound = () => {
+    if (synth) {
+      synth.triggerAttackRelease(pitch, '8n');
+    }
+  }
+
+  
   return (
     <div>
       <h1>Synthesizer</h1>
@@ -271,7 +278,9 @@ const Synthesizer = () => {
         <option value="square">Square</option>
         <option value="triangle">Triangle</option>
       </select>
+      <button onClick={handlePlaySound}>Play Sound</button>
     </div>
+    
   );
 };
 
