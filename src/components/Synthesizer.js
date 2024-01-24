@@ -70,7 +70,7 @@
 
 // src/components/Synthesizer.js
 import React, { useState, useEffect, useRef } from 'react';
-import { Synth, AMSynth, FMSynth, MonoSynth, Destination, Reverb, Delay, Distortion } from 'tone';
+import { Synth, AMSynth, FMSynth, MonoSynth, Reverb, Delay, Distortion } from 'tone';
 
 
 
@@ -84,8 +84,8 @@ const Synthesizer = () => {
   const [waveform, setWaveform] = useState('sine');
   const [selectedPreset, setSelectedPreset] = useState('Default');
   
-
-  let synth = useRef(createSynth()).current;
+  const synthRef = useRef(createSynth());
+  // let synth = useRef(createSynth()).current;
 
   function createSynth() {
     let newSynth;
@@ -104,6 +104,7 @@ const Synthesizer = () => {
         newSynth = new Synth().toDestination();
     }
 
+    // Connect effects
     if (reverb > 0) {
       const reverbEffect = new Reverb(reverb).toDestination();
       newSynth.connect(reverbEffect);
@@ -123,8 +124,13 @@ const Synthesizer = () => {
   }
 
   useEffect(() => {
+    synthRef.current.disconnect();
+    synthRef.current = createSynth();
+  }, [synthType, reverb, delay, distortion]);
+
+  useEffect(() => {
   
-    synth = createSynth(); // Update synth with the newly created synthesizer
+    // synth = createSynth(); // Update synth with the newly created synthesizer
 
     fetch('/db.json')
       .then((response) => response.json())
@@ -143,10 +149,10 @@ const Synthesizer = () => {
           setSynthType(presetToLoad.synthType || 'AMSynth');
           setWaveform(presetToLoad.waveform || 'sine');
 
-          synth.dispose();
-          synth = createSynth();
-          synth.volume.value = presetToLoad.volume;
-          synth.triggerAttack(presetToLoad.pitch || 440);
+          synthRef.current.disconnect();
+          synthRef.current = createSynth();
+          synthRef.current.volume.value = presetToLoad.volume;
+          synthRef.current.triggerAttack(presetToLoad.pitch || 440);
         }
       });
   }, [selectedPreset]);
@@ -155,65 +161,65 @@ const Synthesizer = () => {
   const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
     setVolume(newVolume);
-    synth.volume.value = volume;
+    synthRef.volume.value = volume;
   };
 
   const handlePitchChange = (e) => {
     const newPitch = parseFloat(e.target.value);
     setPitch(newPitch);
-    synth.triggerAttack(newPitch);
+    synthRef.triggerAttack(newPitch);
   };
 
   const handleReverbChange = (e) => {
     const newReverb = parseFloat(e.target.value);
     setReverb(newReverb);
-    synth.dispose();
-    synth = createSynth();
-    synth.connect(new Reverb(newReverb));
+    synthRef.current.disconnect();
+    synthRef.current = createSynth();
+    synthRef.current.connect(new Reverb(newReverb));
   };
 
   const handleDelayChange = (e) => {
     const newDelay = parseFloat(e.target.value);
     setDelay(newDelay);
-    synth.dispose();
-    synth = createSynth();
-    synth.connect(new Delay(newDelay));
+    synthRef.current.disconnect();
+    synthRef.current = createSynth();
+    synthRef.current.connect(new Delay(newDelay));
   };
 
   const handleDistortionChange = (e) => {
     const newDistortion = parseFloat(e.target.value);
     setDistortion(newDistortion);
-    synth.dispose();
-    synth = createSynth();
-    synth.connect(new Distortion(newDistortion));
+    synthRef.current.disconnect();
+    synthRef.current = createSynth();
+    synthRef.current.connect(new Distortion(newDistortion));
   };
 
   const handleSynthTypeChange = (e) => {
     const newSynthType = e.target.value;
     setSynthType(newSynthType);
-    synth.dispose();
-    synth = createSynth();
+    synthRef.current.disconnect();
+    synthRef.current = createSynth();
     // Connect new synthesizer to effects
     if (reverb > 0) {
-      synth.connect(new Reverb(reverb));
+      synthRef.current.connect(new Reverb(reverb));
     }
     if (delay > 0) {
-      synth.connect(new Delay(delay));
+      synthRef.current.connect(new Delay(delay));
     }
     if (distortion > 0) {
-      synth.connect(new Distortion(distortion));
+      synthRef.current.connect(new Distortion(distortion));
     }
   };
 
   const handleWaveformChange = (e) => {
     const newWaveform = e.target.value;
     setWaveform(newWaveform);
-    synth.oscillator.type = newWaveform;
+    synthRef.current.oscillator.type = newWaveform;
   };
 
   const handlePlaySound = () => {
-    if (synth) {
-      synth.triggerAttackRelease(pitch, '8n');
+    if (synthRef) {
+      synthRef.current.triggerAttackRelease(pitch, '8n');
     }
   }
 
