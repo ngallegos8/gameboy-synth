@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 // import NavBar from "./NavBar";
 import Header from "./components/Header";
-import Synthesizer from "./components/Synthesizer";
+import Synth from "./components/Synth";
 import About from "./pages/About";
 import Manual from "./pages/Manual";
 import Footer from './Footer';
@@ -15,7 +15,7 @@ function App() {
         
       </header>
       <main>
-        <Synthesizer />
+        <Synth />
         {/* <About /> */}
         {/* <Manual /> */}
       </main>
