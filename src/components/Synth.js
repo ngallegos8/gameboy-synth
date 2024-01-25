@@ -1,5 +1,5 @@
 // Synth.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as Tone from 'tone';
 import PresetTable from './PresetTable';
 
@@ -10,20 +10,8 @@ const Synth = () => {
   const [distortionAmount, setDistortionAmount] = useState(0);
   const [delayAmount, setDelayAmount] = useState(0);
   const [reverbAmount, setReverbAmount] = useState(0);
-
   const [presets, setPresets] = useState([]);
 
-
-
-  
-  const seePresets = () => {
-    fetch('http://localhost:4000/presets')
-      .then((response) => response.json())
-      .then(setPresets)
-      .catch((error) => console.error('Error fetching presets:', error));
-  };
-
-  console.log(presets)
 
   const synth = new Tone[synthType]().toDestination();
 
@@ -34,13 +22,14 @@ const Synth = () => {
 
   synth.chain(pitchEffect, distortionEffect, delayEffect, reverbEffect);
 
+
+
   const handlePlayNote = () => {
     // Play a note with the selected parameters
     synth.triggerAttackRelease('C4', '4n');
   };
 
   const savePreset = () => {
-    // Implement logic to save preset to db.json or a database
     const preset = {
       synthType,
       waveform,
@@ -49,13 +38,37 @@ const Synth = () => {
       delayAmount,
       reverbAmount,
     };
-    // Save preset logic (e.g., using fetch to send data to a server)
-    console.log('Preset saved:', preset);
+
+    fetch('http://localhost:4000/presets', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(preset),
+    })
+      .then((response) => response.json())
+      .then((newPreset) => {
+        console.log('Preset saved:', newPreset);
+        // Optionally update the local state with the new preset
+        setPresets((prevPresets) => [...prevPresets, newPreset]);
+      })
+      .catch((error) => console.error('Error saving preset:', error));
   };
 
+  const seePresets = () => {
+    fetch('http://localhost:4000/presets')
+      .then((response) => response.json())
+      .then(setPresets)
+      .catch((error) => console.error('Error fetching presets:', error));
+  };
+  console.log(presets)
 
- 
-  
+  // Fetch presets when the component mounts
+  useEffect(() => {
+    seePresets();
+  }, []); // Empty dependency array means this effect runs once when the component mounts
+
+
 
 
   return (

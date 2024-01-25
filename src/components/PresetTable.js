@@ -16,7 +16,6 @@ const PresetTable = ({ presets }) => {
       )
     })
 
-    
 
   return (
     <div>
