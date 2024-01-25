@@ -1,6 +1,7 @@
 // Synth.js
 import React, { useState } from 'react';
 import * as Tone from 'tone';
+import PresetTable from './PresetTable';
 
 const Synth = () => {
   const [synthType, setSynthType] = useState('AMSynth');
@@ -9,6 +10,20 @@ const Synth = () => {
   const [distortionAmount, setDistortionAmount] = useState(0);
   const [delayAmount, setDelayAmount] = useState(0);
   const [reverbAmount, setReverbAmount] = useState(0);
+
+  const [presets, setPresets] = useState([]);
+
+
+
+  
+  const seePresets = () => {
+    fetch('http://localhost:4000/presets')
+      .then((response) => response.json())
+      .then(setPresets)
+      .catch((error) => console.error('Error fetching presets:', error));
+  };
+
+  console.log(presets)
 
   const synth = new Tone[synthType]().toDestination();
 
@@ -38,27 +53,10 @@ const Synth = () => {
     console.log('Preset saved:', preset);
   };
 
-  const loadPreset = async () => {
-    try {
-      const response = await fetch('http://localhost:4000/presets'); // Update the path accordingly
-      const data = await response.json();
 
-      // Assuming 'presets' is an array in your db.json
-      if (data.presets && data.presets.length > 0) {
-        const loadedPreset = data.presets[0]; // You can choose a specific preset or implement logic to select one
-        setSynthType(loadedPreset.synthType);
-        setWaveform(loadedPreset.waveform);
-        setPitchAmount(loadedPreset.pitchAmount);
-        setDistortionAmount(loadedPreset.distortionAmount);
-        setDelayAmount(loadedPreset.delayAmount);
-        setReverbAmount(loadedPreset.reverbAmount);
-      } else {
-        console.error('No presets found in db.json');
-      }
-    } catch (error) {
-      console.error('Error loading preset:', error);
-    }
-  };
+ 
+  
+
 
   return (
     <div>
@@ -97,9 +95,11 @@ const Synth = () => {
       <div>
         <button onClick={handlePlayNote}>Play Note</button>
         <button onClick={savePreset}>Save Preset</button>
-        <button onClick={loadPreset}>Load Preset</button>
+        <button onClick={seePresets}>Presets</button>
+  
+        <PresetTable presets={presets}/>
       </div>
-      
+
     </div>
   );
 };

@@ -1,30 +1,33 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Search from "./Search"
 
-const PresetTable = ({ presets, onPresetClick }) => {
+const PresetTable = ({ presets }) => {
     // console.log(presets)
+
+    const [search, setSearch] = useState("")
+
+    const filteredPresets = presets.filter((preset)=> preset.name.toLowerCase().includes(search.toLowerCase()))
+
+    
 
   return (
     <div>
       <h2>Preset List</h2>
+      <Search search={search} setSearch={setSearch}/>
       <table>
         <thead>
           <tr>
             <th>#</th>
             <th>Type</th>
             <th>Name</th>
-            {/* Add more columns as needed */}
           </tr>
         </thead>
         <tbody>
-          {presets.map((preset) => (
-            <tr key={preset.name} onClick={() => onPresetClick(preset.name)}>
+          {filteredPresets.map((preset) => (
+            <tr key={preset.name}>
               <td>{preset.id}</td>
               <td>{preset.type}</td>
               <td>{preset.name}</td>
-              {/* Add more cells as needed */}
-              <td>
-                <button onClick={() => onPresetClick(preset.name)}>Load</button>
-              </td>
             </tr>
           ))}
         </tbody>
