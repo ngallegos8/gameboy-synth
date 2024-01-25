@@ -98,7 +98,6 @@ const Synth = () => {
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
 
-
   return (
     <div>
       <h2>{selectedPresetName}</h2>
@@ -149,6 +148,7 @@ const Synth = () => {
   
         {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
       </div>
+      
 
     </div>
   );
