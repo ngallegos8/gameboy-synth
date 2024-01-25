@@ -10,7 +10,13 @@ const Synth = () => {
   const [distortionAmount, setDistortionAmount] = useState(0);
   const [delayAmount, setDelayAmount] = useState(0);
   const [reverbAmount, setReverbAmount] = useState(0);
+
   const [presets, setPresets] = useState([]);
+  const [showPresets, setShowPresets] = useState(false);
+
+  const togglePresets = () => {
+    setShowPresets(!showPresets)
+  }
 
 
   const synth = new Tone[synthType]().toDestination();
@@ -108,9 +114,9 @@ const Synth = () => {
       <div>
         <button onClick={handlePlayNote}>Play Note</button>
         <button onClick={savePreset}>Save Preset</button>
-        <button onClick={seePresets}>Presets</button>
+        <button onClick={togglePresets}>Presets</button>
   
-        <PresetTable presets={presets}/>
+        {showPresets && <PresetTable presets={presets}/>}
       </div>
 
     </div>
