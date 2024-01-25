@@ -6,7 +6,15 @@ const PresetTable = ({ presets }) => {
 
     const [search, setSearch] = useState("")
 
-    const filteredPresets = presets.filter((preset)=> preset.name.toLowerCase().includes(search.toLowerCase()))
+    const filteredPresets = presets.filter((preset) => {
+      return (
+        preset.id.toString().includes(search.toLowerCase()) ||
+        preset.name.toLowerCase().includes(search.toLowerCase()) ||
+        preset.type.toLowerCase().includes(search.toLowerCase()) ||
+        preset.synthType.toLowerCase().includes(search.toLowerCase()) ||
+        preset.waveform.toLowerCase().includes(search.toLowerCase())
+      )
+    })
 
     
 
