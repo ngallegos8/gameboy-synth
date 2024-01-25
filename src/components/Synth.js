@@ -61,6 +61,11 @@ const Synth = () => {
       .catch((error) => console.error('Error saving preset:', error));
   };
 
+  function removePreset(id) {
+    const newPresets = presets.filter((preset) => preset.id !== id)
+    setPresets(newPresets)
+  }
+
   const seePresets = () => {
     fetch('http://localhost:4000/presets')
       .then((response) => response.json())
@@ -116,7 +121,7 @@ const Synth = () => {
         <button onClick={savePreset}>Save Preset</button>
         <button onClick={togglePresets}>Presets</button>
   
-        {showPresets && <PresetTable presets={presets}/>}
+        {showPresets && <PresetTable presets={presets} removePreset={removePreset}/>}
       </div>
 
     </div>

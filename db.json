@@ -23,13 +23,22 @@
       "reverbAmount": 0.5
     },
     {
-      "id": "ea02",
+      "id": "4b95",
       "synthType": "MonoSynth",
-      "waveform": "triangle",
+      "waveform": "square",
       "pitchAmount": 0,
       "distortionAmount": 0,
-      "delayAmount": 0.36,
+      "delayAmount": 0.82,
       "reverbAmount": 0
+    },
+    {
+      "id": "c2b1",
+      "synthType": "FMSynth",
+      "waveform": "square",
+      "pitchAmount": -7,
+      "distortionAmount": 0,
+      "delayAmount": 0.82,
+      "reverbAmount": 0.51
     }
   ]
 }
