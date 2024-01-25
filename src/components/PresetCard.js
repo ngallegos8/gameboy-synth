@@ -1,11 +1,11 @@
 import React from "react";
 
-function PresetCard({ preset }) {
+function PresetCard({ preset, onPresetClick }) {
 
 
   return (
     <tr>
-        <td className="row-name" >
+        <td className="row-name" onClick={() => onPresetClick(preset.name)}>
             <span>{preset.id}</span>
         </td>
         <td>

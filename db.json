@@ -1,26 +1,29 @@
 {
-    "presets": [
-      {
-        "id": 1,
-        "name": "Default",
-        "volume": 50,
-        "pitch": 440,
-        "reverb": 0,
-        "delay": 0,
-        "distortion": 0,
-        "synthType": "AMSynth",
-        "waveform": "sine"
-      },
-      {
-        "id": 2,
-        "name": "Custom 1",
-        "volume": 70,
-        "pitch": 880,
-        "reverb": 0.2,
-        "delay": 0.3,
-        "distortion": 0.5,
-        "synthType": "FMSynth",
-        "waveform": "square"
-      }
-    ]
-  }
+  "presets": [
+    {
+      "id": "1",
+      "name": "Default",
+      "volume": 50,
+      "type": "string",
+      "pitch": 440,
+      "reverb": 0.01,
+      "delay": 0.01,
+      "distortion": 0.01,
+      "synthType": "AMSynth",
+      "waveform": "sine"
+    },
+    {
+      "id": "2",
+      "name": "Default 2",
+      "volume": 50,
+      "type": "bass",
+      "pitch": 440,
+      "reverb": 0.01,
+      "delay": 0.01,
+      "distortion": 0.01,
+      "synthType": "AMSynth",
+      "waveform": "sine"
+    }
+    
+  ]
+}

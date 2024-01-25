@@ -3,8 +3,8 @@ import React from 'react';
 // import NavBar from "./NavBar";
 import Header from "./components/Header";
 import Synthesizer from "./components/Synthesizer";
-import About from "./components/About";
-import Manual from "./components/Manual";
+import About from "./pages/About";
+import Manual from "./pages/Manual";
 import Footer from './Footer';
 
 function App() {
