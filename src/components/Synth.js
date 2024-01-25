@@ -15,10 +15,9 @@ const Synth = () => {
 
   const [presets, setPresets] = useState([]);
   const [showPresets, setShowPresets] = useState(false);
+  const [selectedPresetName, setSelectedPresetName] = useState(null);
 
-  const togglePresets = () => {
-    setShowPresets(!showPresets)
-  }
+  
 
   const synth = new Tone[synthType]().toDestination();
 
@@ -78,6 +77,21 @@ const Synth = () => {
   };
   console.log(presets)
 
+  const togglePresets = () => {
+    setShowPresets(!showPresets)
+  }
+
+  const handlePresetClick = (selectedPreset) => {
+    // Load selected preset values into the synth
+    setSynthType(selectedPreset.synthType);
+    setWaveform(selectedPreset.waveform);
+    setPitchAmount(selectedPreset.pitchAmount);
+    setDistortionAmount(selectedPreset.distortionAmount);
+    setDelayAmount(selectedPreset.delayAmount);
+    setReverbAmount(selectedPreset.reverbAmount);
+    setSelectedPresetName(selectedPreset.name);
+  };
+
   // Fetch presets when the component mounts
   useEffect(() => {
     seePresets();
@@ -85,9 +99,9 @@ const Synth = () => {
 
 
 
-
   return (
     <div>
+      <h2>{selectedPresetName}</h2>
       <div>
         <label>Synth Type:</label>
         <select value={synthType} onChange={(e) => setSynthType(e.target.value)}>
@@ -133,7 +147,7 @@ const Synth = () => {
         <button onClick={savePreset}>Save Preset</button>
         <button onClick={togglePresets}>Presets</button>
   
-        {showPresets && <PresetTable presets={presets} removePreset={removePreset}/>}
+        {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
       </div>
 
     </div>

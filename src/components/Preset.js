@@ -1,6 +1,6 @@
 import React from "react";
 
-function PresetCard({ preset, removePreset }) {
+function PresetCard({ preset, onPresetClick, removePreset }) {
 
 
   function handleDelete() {
@@ -12,7 +12,7 @@ function PresetCard({ preset, removePreset }) {
 
   return (
     
-    <tr key={preset.id}>
+    <tr key={preset.id} onClick={() => onPresetClick(preset)}>
         <td>
             {preset.id}
         </td>

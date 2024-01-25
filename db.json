@@ -32,6 +32,17 @@
       "distortionAmount": 0,
       "delayAmount": 0,
       "reverbAmount": 0.33
+    },
+    {
+      "id": 4,
+      "name": "preset3.2",
+      "type": "",
+      "synthType": "FMSynth",
+      "waveform": "square",
+      "pitchAmount": 0.8,
+      "distortionAmount": 0.7,
+      "delayAmount": 0.91,
+      "reverbAmount": 0.17
     }
   ]
 }

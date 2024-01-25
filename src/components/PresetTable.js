@@ -2,13 +2,13 @@ import React, {useState} from 'react';
 import Search from "./Search"
 import Preset from "./Preset"
 
-const PresetTable = ({ presets, removePreset }) => {
+const PresetTable = ({ presets, onPresetClick, removePreset }) => {
     console.log(presets)
 
     const [search, setSearch] = useState("")
+    // console.log("searching..." + search)
 
 
-    console.log("searching..." + search)
     
     
     const filteredPresets = presets.filter((preset) => {
@@ -22,13 +22,11 @@ const PresetTable = ({ presets, removePreset }) => {
       })
 
       const presetRow = filteredPresets.map((preset) => {
-        return <Preset key={preset.id} preset={preset} removePreset={removePreset}/>
+        return <Preset key={preset.id} preset={preset} onPresetClick={onPresetClick} removePreset={removePreset}/>
       })
       
 
-
-
-
+    
   return (
     <div>
       <h2>Preset List</h2>
