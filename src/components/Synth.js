@@ -10,6 +10,8 @@ const Synth = () => {
   const [distortionAmount, setDistortionAmount] = useState(0);
   const [delayAmount, setDelayAmount] = useState(0);
   const [reverbAmount, setReverbAmount] = useState(0);
+  const [name, setName] = useState("");
+  const [type, setType] = useState("");
 
   const [presets, setPresets] = useState([]);
   const [showPresets, setShowPresets] = useState(false);
@@ -17,7 +19,6 @@ const Synth = () => {
   const togglePresets = () => {
     setShowPresets(!showPresets)
   }
-
 
   const synth = new Tone[synthType]().toDestination();
 
@@ -37,6 +38,9 @@ const Synth = () => {
 
   const savePreset = () => {
     const preset = {
+      id: presets.length + 1,
+      name,
+      type,
       synthType,
       waveform,
       pitchAmount,
@@ -115,6 +119,14 @@ const Synth = () => {
       <div>
         <label>Reverb Amount:</label>
         <input type="range" min="0.01" max="1" step="0.01" value={reverbAmount} onChange={(e) => setReverbAmount(Number(e.target.value))} />
+      </div>
+      <div>
+        <label>Preset Name:</label>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
+      </div>
+      <div>
+        <label>Preset Type:</label>
+        <input type="text" value={type} onChange={(e) => setType(e.target.value)} />
       </div>
       <div>
         <button onClick={handlePlayNote}>Play Note</button>

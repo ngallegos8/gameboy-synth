@@ -12,17 +12,17 @@ function PresetCard({ preset, removePreset }) {
 
   return (
     
-    <tr>
-        <td className="row-name" key={preset.id}>
-            <span>{preset.id}</span>
+    <tr key={preset.id}>
+        <td>
+            {preset.id}
         </td>
         <td>
-            <span>{preset.type}</span>
+            {preset.type}
         </td>
         <td>
-            <span>{preset.name}</span>
+            {preset.name}
         </td>
-        <button onClick={handleDelete}>🗑️</button>
+        <button onClick={handleDelete}>DEL</button>
     </tr>
   );
 }

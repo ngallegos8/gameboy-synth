@@ -3,16 +3,14 @@ import Search from "./Search"
 import Preset from "./Preset"
 
 const PresetTable = ({ presets, removePreset }) => {
-    // console.log(presets)
+    console.log(presets)
 
     const [search, setSearch] = useState("")
 
 
-    const presetRow = presets.map((preset) => {
-      return <Preset key={preset.id} preset={preset} removePreset={removePreset}/>
-    })
-
-
+    console.log("searching..." + search)
+    
+    
     const filteredPresets = presets.filter((preset) => {
       return (
         preset.id.toString().includes(search.toLowerCase()) ||
@@ -20,18 +18,14 @@ const PresetTable = ({ presets, removePreset }) => {
         preset.type.toLowerCase().includes(search.toLowerCase()) ||
         preset.synthType.toLowerCase().includes(search.toLowerCase()) ||
         preset.waveform.toLowerCase().includes(search.toLowerCase())
-      )
-    })
+        )
+      })
 
-    
+      const presetRow = filteredPresets.map((preset) => {
+        return <Preset key={preset.id} preset={preset} removePreset={removePreset}/>
+      })
+      
 
-  
-
-    // function SomeDeleteRowFunction(event) {
-    //   var td = event.target.parentNode;
-    //   var tr = td.parentNode; // the row to be removed
-    //   tr.parentNode.removeChild(tr);
-    // }
 
 
 
