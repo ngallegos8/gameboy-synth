@@ -98,6 +98,9 @@ const Synth = () => {
   }, []); // Empty dependency array means this effect runs once when the component mounts
 
 
+
+
+
   return (
     <>
     <header>

@@ -1,48 +1,70 @@
 {
   "presets": [
     {
-      "id": 1,
-      "name": "preset 1",
-      "type": "bass",
-      "synthType": "AMSynth",
-      "waveform": "sine",
-      "pitchAmount": 0.2,
-      "distortionAmount": 0.3,
-      "delayAmount": 0.4,
-      "reverbAmount": 0.5
+      "id": "1",
+      "name": "Elephant Trunk",
+      "type": "BS",
+      "synthType": "MonoSynth",
+      "waveform": "triangle",
+      "pitchAmount": -12,
+      "distortionAmount": 0.01,
+      "delayAmount": 0.01,
+      "reverbAmount": 0.01
     },
     {
       "id": 2,
-      "name": "preset 3",
-      "type": "string",
-      "synthType": "FMSynth",
-      "waveform": "square",
-      "pitchAmount": 0.8,
-      "distortionAmount": 0.7,
-      "delayAmount": 0.6,
-      "reverbAmount": 0.5
+      "name": "Cruddy Baritone",
+      "type": "BS",
+      "synthType": "AMSynth",
+      "waveform": "sine",
+      "pitchAmount": -12,
+      "distortionAmount": 0,
+      "delayAmount": 0,
+      "reverbAmount": 0
     },
     {
       "id": 3,
-      "name": "asdf",
-      "type": "",
-      "synthType": "AMSynth",
-      "waveform": "sine",
+      "name": "Canyon Key",
+      "type": "KY",
+      "synthType": "FMSynth",
+      "waveform": "square",
       "pitchAmount": 0,
-      "distortionAmount": 0,
-      "delayAmount": 0,
-      "reverbAmount": 0.33
+      "distortionAmount": 0.02,
+      "delayAmount": 0.54,
+      "reverbAmount": 0.85
     },
     {
       "id": 4,
-      "name": "preset3.2",
-      "type": "",
+      "name": "Almost sounds as good as a real french horn",
+      "type": "BR",
+      "synthType": "MonoSynth",
+      "waveform": "square",
+      "pitchAmount": 0,
+      "distortionAmount": 0.09,
+      "delayAmount": 0,
+      "reverbAmount": 0.69
+    },
+    {
+      "id": 5,
+      "name": "Dissonant Bell",
+      "type": "BL",
+      "synthType": "FMSynth",
+      "waveform": "sine",
+      "pitchAmount": 9,
+      "distortionAmount": 0,
+      "delayAmount": 0.8,
+      "reverbAmount": 0.75
+    },
+    {
+      "id": 6,
+      "name": "Rage Lead",
+      "type": "LD",
       "synthType": "FMSynth",
       "waveform": "square",
-      "pitchAmount": 0.8,
-      "distortionAmount": 0.7,
-      "delayAmount": 0.91,
-      "reverbAmount": 0.17
+      "pitchAmount": 0,
+      "distortionAmount": 0.42,
+      "delayAmount": 0.22,
+      "reverbAmount": 0
     }
   ]
 }
