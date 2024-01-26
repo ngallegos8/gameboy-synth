@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Search from "./Search"
 import Preset from "./Preset"
 
-const PresetTable = ({ presets, onPresetClick, removePreset }) => {
+const PresetTable = ({ presets, onPresetClick, removePreset, onPresetLoad }) => {
     console.log(presets)
 
     const [search, setSearch] = useState("")
@@ -22,8 +22,18 @@ const PresetTable = ({ presets, onPresetClick, removePreset }) => {
       })
 
       const presetRow = filteredPresets.map((preset) => {
-        return <Preset key={preset.id} preset={preset} onPresetClick={onPresetClick} removePreset={removePreset}/>
-      })
+        return (
+          <Preset
+            key={preset.id}
+            preset={preset}
+            onPresetClick={() => {
+              onPresetClick(preset); // Notify the parent component about preset click
+              onPresetLoad(); // Notify the parent component to hide the PresetTable
+            }}
+            removePreset={removePreset}
+          />
+        );
+      });
       
 
     

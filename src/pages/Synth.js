@@ -92,6 +92,10 @@ const Synth = () => {
     setSelectedPresetName(selectedPreset.name);
   };
 
+  const handlePresetLoad = () => {
+    setShowPresets(!showPresets); // Set visibility state to hide PresetTable
+  };
+
   // Fetch presets when the component mounts
   useEffect(() => {
     seePresets();
@@ -107,7 +111,7 @@ const Synth = () => {
       {/* <NavBar /> */}
     </header>
     <main>
-              {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
+              {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset} onPresetLoad={handlePresetLoad}/>}
     <div className="gameboy-container">
       <div className="gameboy-screen">
       <div>
