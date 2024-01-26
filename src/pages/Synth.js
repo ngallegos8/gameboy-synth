@@ -151,16 +151,52 @@ const Synth = () => {
         <label>Preset Type:</label>
         <input type="text" value={type} onChange={(e) => setType(e.target.value)} />
       </div>
-      <div>
-        <button onClick={handlePlayNote}>Play Note</button>
-        <button onClick={savePreset}>Save Preset</button>
-        <button onClick={togglePresets}>Presets</button>
-  
-        {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
-      </div>
       </div>
     </div>
       
+      <div className ="gameboy-body">
+        <div className='gameboy-body-text'>GameBoy SYNTH</div>
+          <div className='main-buttons'>
+            <div class-name="dpad-buttons">
+              <div className="gameboy-dpad">
+                <button className="gameboy-dpad-button up"></button>
+                <button className="gameboy-dpad-button left"></button>
+                <button className="gameboy-dpad-button right"></button>
+                <button className="gameboy-dpad-button down"></button>
+              {/* FOR FUTURE UPDATE WHEN D-PAD BUTTONS FUNCTION */}
+              {/* <div className="gameboy-dpad">
+                <button className="gameboy-dpad-button up" onClick={() => handleDpadPress('up')}></button>
+                <button className="gameboy-dpad-button left" onClick={() => handleDpadPress('left')}></button>
+                <button className="gameboy-dpad-button right" onClick={() => handleDpadPress('right')}></button>
+                <button className="gameboy-dpad-button down" onClick={() => handleDpadPress('down')}></button>
+              </div> */}
+              </div>
+            </div>
+            <div className='a-b-buttons'>
+              <div className="b-button-div">
+                <button className="B-button"></button>
+                <h5 className='b-button-text'>B</h5>
+              </div>
+              <div className="a-button-div">
+                <button className="A-button" onClick={handlePlayNote}></button>
+                <h5 className='a-button-text'>A</h5>
+              </div>
+            </div>
+      </div>
+      <div className='secondary-buttons'>
+        <div className="save-preset-div">
+          <button className="save-preset-button" onClick={savePreset}></button>
+          <h5 className="save-preset-text">Save Preset</h5>
+        </div>
+        <div className="presets-div">
+          <button className="presets-button" onClick={togglePresets}></button>
+          <h5 className="presets-text">Presets</h5>
+        </div>
+  
+        {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
+          </div>
+          
+        </div>
 
     </div>
     </main>

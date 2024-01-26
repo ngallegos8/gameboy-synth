@@ -1,5 +1,5 @@
 .gameboy-container {
-    background-color: #8f8f8f; /* Gameboy gray color */
+    background-color: #c4bebb; /* Gameboy gray color */
     padding: 20px;
     width: 400px;
     height: 500px;
@@ -10,9 +10,202 @@
   }
   
   .gameboy-screen {
-    background-color: #c0c0c0; /* Gameboy screen color */
+    background-color: #84d07d; /* Gameboy screen color */
     padding: 10px;
     border: 2px solid #000;
     border-radius: 5px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .gameboy-body-text {
+    font-size: 25px;
+    color:#494786;
+    padding: 10px;
+    text-align: left;
+
+  }
+
+  .main-buttons {
+    display: flex;
+    width: 50%;
+  }
+
+  /* .dpad-buttons {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem 2rem;
+    display: flex;
+    width: 50%;
+  } */
+
+  .gameboy-dpad {
+    /* margin: left; */
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 50px;
+    height: 50px;
+  }
+  .gameboy-dpad-button {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #8f8f8f;
+    background-color: #272929; 
+    cursor: pointer;
+  }
+  
+  .gameboy-dpad-button.up {
+    border-bottom-width: 2px; 
+  }
+  .gameboy-dpad-button.down {
+    border-top-width: 2px; 
+  }
+  .gameboy-dpad-button.left {
+    border-right-width: 2px; 
+  }
+  .gameboy-dpad-button.right {
+    border-left-width: 2px; 
+  }
+
+  .gameboy-dpad-button:hover {
+    background-color: #555a56; 
+  }
+
+
+  .a-b-buttons {
+    transform: rotate(-20deg);
+    /* border: 1px solid black; */
+    margin: 1rem;
+    padding: 2rem 2rem;
+    /* text-align: center; */
+    display: flex;
+    width: 30%;
+    height: 70px;
+  }
+
+  .A-button {
+    /* display: inline-block; */
+    width: 50px; /* Set a fixed width and height to create a circle */
+    height: 50px;
+    background-color: #9a2257; /* Classic Gameboy red color */
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%; /* Use border-radius to create a circle */
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1;
+    /* float: right; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    /* text-decoration: none; */
+  }
+
+  .B-button:first-child {
+    margin-right: 20px;
+  }
+  
+  .A-button:hover {
+    background-color: #ae3636; /* Lighter red on hover */
+  }
+
+  .a-button-text {
+    height: 8px;
+    font-size: 16px;
+    color:#494786
+  }
+  
+
+  .B-button {
+    /* display: inline-block; */
+    width: 50px; /* Set a fixed width and height to create a circle */
+    height: 50px;
+    background-color: #9a2257; /* Classic Gameboy red color */
+    color: #fff;
+    border: 2px solid #000;
+    border-radius: 50%; /* Use border-radius to create a circle */
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1;
+    /* display: flex; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* text-align: center; */
+    /* text-decoration: none; */
+  }
+  
+  .B-button:hover {
+    background-color: #ae3636; /* Lighter red on hover */
+  }
+
+  .b-button-text {
+    height: 8px;
+    font-size: 16px;
+    color:#494786
+  }
+
+  .secondary-buttons {
+    display: flex;
+    width: 40%;
+    margin: auto;
+    /* width: 50%; */
+    /* border: 2px solid #000; */
+  }
+
+  .save-preset-div {
+    transform: rotate(-20deg);
+    height: 20px;
+    flex: 1;
+    margin: 12px;
+  }
+
+  .save-preset-div:first-child {
+    margin-right: 10px;
+  }
+
+  .save-preset-button {
+    height: 10px;
+    width: 60px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
+  }
+
+  .save-preset-button:hover {
+    background-color:indigo;
+  }
+
+  .save-preset-text {
+    height: 8px;
+    font-size: 8px;
+    color:#494786
+
+  }
+
+  .presets-div {
+    transform: rotate(-20deg);
+    height: 20px;
+  }
+
+  .presets-button {
+    height: 10px;
+    width: 60px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+
+  }
+
+  .presets-button:hover {
+    background-color:indigo;
+  }
+
+  .presets-text {
+    height: 8px;
+    font-size: 8px;
+    color:#494786
+
   }

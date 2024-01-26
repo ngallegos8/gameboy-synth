@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: antiquewhite;
 }
 
 code {
@@ -15,7 +16,7 @@ code {
 .footer{
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #282c34;
+  background-color: #494786;
   position: fixed;
   bottom: 0;
   left: 0;
