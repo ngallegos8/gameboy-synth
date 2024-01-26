@@ -209,3 +209,27 @@
     color:#494786
 
   }
+
+.presets-container {
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(rgba(132, 208, 125, 0.6), rgba(132, 208, 125, 0.9)), url("../images/inside\ of\ gameboy.jpeg");
+  background-size: contain;
+  /* background-color: #84d07d; */
+  padding: 20px;
+  width: 400px;
+  height: 500px;
+  margin: 50px auto;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.inside-of-gb {
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}

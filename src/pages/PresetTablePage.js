@@ -1,6 +1,7 @@
 // PresetTablePage.js
 import React from 'react';
 import PresetTable from '../components/PresetTable';
+import import './Synth.css';
 
 const PresetTablePage = () => {
   return (

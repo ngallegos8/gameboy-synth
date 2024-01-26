@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Search from "../components/Search"
 import Preset from "../components/Preset"
+import './Synth.css';
 
 const PresetTable = ({ presets, onPresetClick, removePreset }) => {
     console.log(presets)
@@ -29,7 +30,6 @@ const PresetTable = ({ presets, onPresetClick, removePreset }) => {
     
   return (
     <div className="preset-list">
-      <h2>Preset List</h2>
       <Search search={search} setSearch={setSearch}/>
       <table>
         <thead>

@@ -65,17 +65,6 @@
       "distortionAmount": 0.42,
       "delayAmount": 0.22,
       "reverbAmount": 0
-    },
-    {
-      "id": 7,
-      "name": "",
-      "type": "",
-      "synthType": "AMSynth",
-      "waveform": "sine",
-      "pitchAmount": 0,
-      "distortionAmount": 0,
-      "delayAmount": 0,
-      "reverbAmount": 0
     }
   ]
 }

@@ -28,8 +28,9 @@ const PresetTable = ({ presets, onPresetClick, removePreset }) => {
 
     
   return (
-    <div>
-      <h2>Preset List</h2>
+    <div className='presets-container'>
+      <img class="inside-of-gb" src="src/images/inside of gameboy.jpeg" alt=""></img>
+      <h2 className="presets-title">Presets</h2>
       <Search search={search} setSearch={setSearch}/>
       <table>
         <thead>

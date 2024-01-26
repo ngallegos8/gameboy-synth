@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as Tone from 'tone';
 import PresetTable from '../components/PresetTable';
-import './Synth.css'; // Import the CSS file for styling
+import './Synth.css';
 
 const Synth = () => {
   const [synthType, setSynthType] = useState('AMSynth');
