@@ -107,6 +107,7 @@ const Synth = () => {
       {/* <NavBar /> */}
     </header>
     <main>
+              {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
     <div className="gameboy-container">
       <div className="gameboy-screen">
       <div>
@@ -193,7 +194,6 @@ const Synth = () => {
           <h5 className="presets-text">Presets</h5>
         </div>
   
-        {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
           </div>
           
         </div>
