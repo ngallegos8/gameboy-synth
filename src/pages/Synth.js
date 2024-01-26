@@ -193,8 +193,8 @@ const Synth = () => {
           <h5 className="presets-text">Presets</h5>
         </div>
   
-        {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
           </div>
+        {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
           
         </div>
 
