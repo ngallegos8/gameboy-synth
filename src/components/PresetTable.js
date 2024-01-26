@@ -28,7 +28,7 @@ const PresetTable = ({ presets, onPresetClick, removePreset }) => {
 
     
   return (
-    <div className="preset-list">
+    <div>
       <h2>Preset List</h2>
       <Search search={search} setSearch={setSearch}/>
       <table>
