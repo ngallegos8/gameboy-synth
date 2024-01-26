@@ -1,7 +1,7 @@
-// Synth.js
 import React, { useState, useEffect } from 'react';
 import * as Tone from 'tone';
 import PresetTable from '../components/PresetTable';
+import './Synth.css'; // Import the CSS file for styling
 
 const Synth = () => {
   const [synthType, setSynthType] = useState('AMSynth');
@@ -107,6 +107,8 @@ const Synth = () => {
       {/* <NavBar /> */}
     </header>
     <main>
+    <div className="gameboy-container">
+      <div className="gameboy-screen">
       <div>
       <h2>{selectedPresetName}</h2>
       <div>
@@ -156,6 +158,8 @@ const Synth = () => {
   
         {showPresets && <PresetTable presets={presets} onPresetClick={handlePresetClick} removePreset={removePreset}/>}
       </div>
+      </div>
+    </div>
       
 
     </div>

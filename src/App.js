@@ -2,11 +2,11 @@ import './App.css';
 import React from 'react';
 import NavBar from "./components/NavBar";
 import Header from "./components/Header";
-import Synth from "./components/Synth";
-import About from "./pages/About";
-import Manual from "./pages/Manual";
+// import Synth from "./components/Synth";
+// import About from "./pages/About";
+// import Manual from "./pages/Manual";
 import Footer from './Footer';
-import { Outlet } from 'react-router-dom';
+// import { Outlet } from 'react-router-dom';
 
 function App() {
   return (

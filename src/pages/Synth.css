@@ -1,0 +1,18 @@
+.gameboy-container {
+    background-color: #8f8f8f; /* Gameboy gray color */
+    padding: 20px;
+    width: 400px;
+    height: 500px;
+    margin: 50px auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .gameboy-screen {
+    background-color: #c0c0c0; /* Gameboy screen color */
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
